@@ -1,0 +1,58 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        carnation: {
+          50: '#fff1f1',
+          100: '#fee5e5',
+          200: '#fdced1',
+          300: '#fba6ab',
+          400: '#f75a68',
+          500: '#f04356',
+          600: '#dd2140',
+          700: '#bb1535',
+          800: '#9c1532',
+          900: '#861532',
+          950: '#4b0616',
+        },
+        eucalyptus: {
+          50: '#ebfef5',
+          100: '#d0fbe4',
+          200: '#a4f6cf',
+          300: '#6aebb6',
+          400: '#2fd898',
+          500: '#00B37E',
+          600: '#009b69',
+          700: '#00875f',
+          800: '#036246',
+          900: '#04503b',
+          950: '#072F36',
+        },
+        woodsmoke: {
+          50: '#FFFFFF',
+          100: '#eeeef0',
+          200: '#E1E1E6',
+          300: '#C4C4CC',
+          400: '#8D8D99',
+          500: '#7C7C8A',
+          600: '#5e5f6b',
+          700: '#4d4e57',
+          800: '#323238',
+          900: '#202024',
+          950: '#020C0A',
+        },
+      },
+      fontFamily: {
+        'roboto-extra-bold': ['Roboto-extra-bold', 'sans-serif'],
+        'roboto-bold': ['Roboto-bold', 'sans-serif'],
+        'roboto-semi-bold': ['Roboto-semi-bold', 'sans-serif'],
+        'roboto-medium': ['Roboto-medium', 'sans-serif'],
+        'roboto-regular': ['Roboto-regular', 'sans-serif'],
+        'roboto-light': ['Roboto-light', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+};
