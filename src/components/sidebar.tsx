@@ -17,10 +17,10 @@ export function Sidebar() {
         />
 
         <div className="pt-4 flex flex-col items-center justify-center gap-1">
-          <strong className="text-base font-roboto-bold text-woodsmoke-200">
+          <strong className="text-sm lg:text-base font-roboto-bold text-woodsmoke-200">
             Lucas Anselmo
           </strong>
-          <span className="text-sm text-woodsmoke-400">
+          <span className="text-xs lg:text-sm text-woodsmoke-400">
             Front-end Software Developer
           </span>
         </div>
@@ -29,7 +29,7 @@ export function Sidebar() {
       <footer className="border-t border-solid border-t-neutral-700 mt-6 pt-6 px-8 pb-8">
         <a
           href="#"
-          className="py-4 px-6 flex items-center justify-center gap-2 bg-transparent text-sm font-bold font-roboto-bold text-eucalyptus-500 border border-solid border-eucalyptus-500 rounded-lg transition-colors hover:bg-eucalyptus-700 hover:text-eucalyptus-50 hover:border-emerald-700"
+          className="py-4 px-6 flex items-center justify-center gap-2 bg-transparent text-xs lg:text-sm font-bold font-roboto-bold text-eucalyptus-500 border border-solid border-eucalyptus-500 rounded-lg transition-colors hover:bg-eucalyptus-700 hover:text-eucalyptus-50 hover:border-emerald-700"
         >
           <Pencil2Icon className="w-4 h-4" />
           Editar seu perfil

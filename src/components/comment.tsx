@@ -3,7 +3,7 @@ import { Avatar } from './avatar';
 
 export function Comment() {
   return (
-    <div className="flex items-start gap-4">
+    <div className="flex items-start gap-2 lg:gap-4">
       <Avatar github_username="LucasAnselmoSIlva12345" />
 
       <div className="w-full">

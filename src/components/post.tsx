@@ -7,7 +7,7 @@ export function Post() {
 
   return (
     <article className="bg-woodsmoke-800 rounded-lg p-10">
-      <header className="flex items-center">
+      <header className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex items-center gap-4">
           <Avatar
             github_username="LucasAnselmoSilva12345"
@@ -26,7 +26,7 @@ export function Post() {
         <time
           title="25 de Janeiro às 14:47"
           dateTime="2025-01-25 14:48:30"
-          className="ml-auto text-sm text-woodsmoke-400"
+          className="mt-2 lg:mt-0 lg:ml-auto text-sm text-woodsmoke-400"
         >
           Publicado há 1h
         </time>
