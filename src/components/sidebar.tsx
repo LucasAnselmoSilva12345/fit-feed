@@ -1,4 +1,5 @@
 import { Pencil2Icon } from '@radix-ui/react-icons';
+import { Avatar } from './avatar';
 
 export function Sidebar() {
   return (
@@ -10,11 +11,7 @@ export function Sidebar() {
       />
 
       <div className="flex flex-col items-center -mt-6">
-        <img
-          src="https://github.com/LucasAnselmoSilva12345.png"
-          alt="Github Image profile Lucas Anselmo"
-          className="bg-woodsmoke-800 p-1 w-14 h-14 rounded-lg border-2 border-eucalyptus-600 "
-        />
+        <Avatar github_username="LucasAnselmoSilva12345" />
 
         <div className="pt-4 flex flex-col items-center justify-center gap-1">
           <strong className="text-base font-roboto-bold text-woodsmoke-200">
