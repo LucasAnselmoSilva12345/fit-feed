@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Avatar } from './avatar';
+import { Comment } from './comment';
 
 export function Post() {
   const [comment, setComment] = useState('');
@@ -86,6 +87,12 @@ export function Post() {
           </button>
         )}
       </form>
+
+      <div className="mt-8 space-y-6">
+        <Comment />
+        <Comment />
+        <Comment />
+      </div>
     </article>
   );
 }
