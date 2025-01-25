@@ -11,7 +11,10 @@ export function Sidebar() {
       />
 
       <div className="flex flex-col items-center -mt-6">
-        <Avatar github_username="LucasAnselmoSilva12345" />
+        <Avatar
+          github_username="LucasAnselmoSilva12345"
+          className="border-2 border-eucalyptus-600"
+        />
 
         <div className="pt-4 flex flex-col items-center justify-center gap-1">
           <strong className="text-base font-roboto-bold text-woodsmoke-200">

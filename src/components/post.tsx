@@ -9,7 +9,10 @@ export function Post() {
     <article className="bg-woodsmoke-800 rounded-lg p-10">
       <header className="flex items-center">
         <div className="flex items-center gap-4">
-          <Avatar github_username="LucasAnselmoSilva12345" />
+          <Avatar
+            github_username="LucasAnselmoSilva12345"
+            className="border-2 border-eucalyptus-600"
+          />
           <div className="flex flex-col gap-1">
             <strong className="text-base font-roboto-bold text-woodsmoke-200">
               Lucas Anselmo
