@@ -49,3 +49,7 @@
   font-display: swap;
   src: url('./fonts/Roboto/Roboto-Light.ttf') format('opentype');
 }
+
+body {
+  @apply font-['Roboto-regular'];
+}
