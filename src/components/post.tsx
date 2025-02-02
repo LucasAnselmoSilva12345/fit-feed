@@ -135,7 +135,7 @@ export function Post({ author, content, publishedAt }: IPost) {
           onChange={handleNewCommentChange}
         />
 
-        {newCommentText.length > 0 && (
+        {newCommentText.trim().length > 0 && (
           <button
             type="submit"
             className="max-w-[108px] py-4 px-6 bg-eucalyptus-700 rounded-lg font-roboto-bold font-bold transition-colors hover:bg-eucalyptus-500 hover:text-eucalyptus-50"
