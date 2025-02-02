@@ -78,12 +78,12 @@ export function Post({ author, content, publishedAt }: IPost) {
       </header>
 
       <div className="mt-6 text-base text-woodsmoke-400 space-y-4">
-        {content.map((item, index) => {
+        {content.map((item) => {
           if (item.type === 'paragraph') {
-            return <p key={index}>{item.content}</p>;
+            return <p key={item.content}>{item.content}</p>;
           } else if (item.type === 'link') {
             return (
-              <p key={index}>
+              <p key={item.content}>
                 👉{' '}
                 <a
                   href={item.content}
@@ -100,10 +100,10 @@ export function Post({ author, content, publishedAt }: IPost) {
         <div className="space-x-1">
           {content
             .filter((item) => item.type === 'hashtag')
-            .map((item, index) => (
+            .map((item) => (
               <a
                 href="#"
-                key={index}
+                key={item.content}
                 className="text-sm text-eucalyptus-500 font-roboto-bold font-bold transition-colors hover:text-eucalyptus-700"
               >
                 {item.content}
@@ -140,7 +140,7 @@ export function Post({ author, content, publishedAt }: IPost) {
 
       <div className="mt-8 space-y-6">
         {comments.map((comment) => {
-          return <Comment content={comment} />;
+          return <Comment key={comment} content={comment} />;
         })}
       </div>
     </article>

@@ -100,12 +100,13 @@ export function App() {
         <Sidebar />
 
         <section className="space-y-8">
-          {posts.map((post) => {
+          {posts.map(({ author, content, publishedAt, id }) => {
             return (
               <Post
-                author={post.author}
-                content={post.content}
-                publishedAt={post.publishedAt}
+                key={id}
+                author={author}
+                content={content}
+                publishedAt={publishedAt}
               />
             );
           })}
