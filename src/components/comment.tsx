@@ -3,9 +3,14 @@ import { Avatar } from './avatar';
 
 interface IComment {
   content: string;
+  onDeleteComment: (comment: string) => void;
 }
 
-export function Comment({ content }: IComment) {
+export function Comment({ content, onDeleteComment }: IComment) {
+  function handleDeleteComment() {
+    onDeleteComment(content);
+  }
+
   return (
     <div className="flex items-start gap-2 lg:gap-4">
       <Avatar githubURL="https://github.com/LucasAnselmoSilva12345.png" />
@@ -26,6 +31,7 @@ export function Comment({ content }: IComment) {
               </time>
             </div>
             <button
+              onClick={handleDeleteComment}
               title="Deletar comentário"
               className="block ml-auto leading-[0] transition-colors outline-none focus:outline focus:outline-eucalyptus-500 hover:text-carnation-400"
             >

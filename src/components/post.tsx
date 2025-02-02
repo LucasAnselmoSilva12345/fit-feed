@@ -52,6 +52,13 @@ export function Post({ author, content, publishedAt }: IPost) {
     setNewCommentText(event.target.value);
   }
 
+  function deleteComment(commentToDelete: string) {
+    const commentsWithoutDeleteOne = comments.filter((comment) => {
+      return comment !== commentToDelete;
+    });
+    setComments(commentsWithoutDeleteOne);
+  }
+
   return (
     <article className="bg-woodsmoke-800 rounded-lg p-10">
       <header className="flex flex-col lg:flex-row lg:items-center">
@@ -140,7 +147,13 @@ export function Post({ author, content, publishedAt }: IPost) {
 
       <div className="mt-8 space-y-6">
         {comments.map((comment) => {
-          return <Comment key={comment} content={comment} />;
+          return (
+            <Comment
+              key={comment}
+              content={comment}
+              onDeleteComment={deleteComment}
+            />
+          );
         })}
       </div>
     </article>
