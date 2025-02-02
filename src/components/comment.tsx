@@ -1,5 +1,6 @@
 import { CheckCircledIcon, TrashIcon } from '@radix-ui/react-icons';
 import { Avatar } from './avatar';
+import { useState } from 'react';
 
 interface IComment {
   content: string;
@@ -7,8 +8,14 @@ interface IComment {
 }
 
 export function Comment({ content, onDeleteComment }: IComment) {
+  const [likeCount, setLikeCount] = useState(0);
+
   function handleDeleteComment() {
     onDeleteComment(content);
+  }
+
+  function handleLikeComment() {
+    setLikeCount(likeCount + 1);
   }
 
   return (
@@ -41,11 +48,14 @@ export function Comment({ content, onDeleteComment }: IComment) {
           <p className="text-sm text-woodsmoke-300">{content}</p>
         </div>
         <footer className="mt-3">
-          <button className="flex items-center gap-2 transition-colors hover:text-eucalyptus-500">
+          <button
+            onClick={handleLikeComment}
+            className="flex items-center gap-2 transition-colors hover:text-eucalyptus-500"
+          >
             <CheckCircledIcon />
             Aplaudir{' '}
             <span className='before:py-0 before:pr-2 before:content-["\2022"]'>
-              33
+              {likeCount}
             </span>
           </button>
         </footer>
