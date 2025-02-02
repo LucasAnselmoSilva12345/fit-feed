@@ -1,7 +1,11 @@
 import { CheckCircledIcon, TrashIcon } from '@radix-ui/react-icons';
 import { Avatar } from './avatar';
 
-export function Comment() {
+interface IComment {
+  content: string;
+}
+
+export function Comment({ content }: IComment) {
   return (
     <div className="flex items-start gap-2 lg:gap-4">
       <Avatar githubURL="https://github.com/LucasAnselmoSilva12345.png" />
@@ -28,9 +32,7 @@ export function Comment() {
               <TrashIcon />
             </button>
           </header>
-          <p className="text-sm text-woodsmoke-300">
-            Muito bom Devon, parabéns!! 👏👏
-          </p>
+          <p className="text-sm text-woodsmoke-300">{content}</p>
         </div>
         <footer className="mt-3">
           <button className="flex items-center gap-2 transition-colors hover:text-eucalyptus-500">

@@ -23,6 +23,9 @@ interface IPost {
 }
 
 export function Post({ author, content, publishedAt }: IPost) {
+  const [comments, setComments] = useState(['Grande Evolução']);
+  const [newCommentText, setNewCommentText] = useState('');
+
   const publishedFateFormatted = format(
     publishedAt,
     "d 'de' LLLL 'às' HH:mm'h'",
@@ -36,7 +39,18 @@ export function Post({ author, content, publishedAt }: IPost) {
     addSuffix: true,
   });
 
-  const [comment, setComment] = useState('');
+  function handleCreateNewComment(event: React.FormEvent) {
+    event.preventDefault();
+
+    setComments([...comments, newCommentText]);
+    setNewCommentText('');
+  }
+
+  function handleNewCommentChange(
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) {
+    setNewCommentText(event.target.value);
+  }
 
   return (
     <article className="bg-woodsmoke-800 rounded-lg p-10">
@@ -98,7 +112,10 @@ export function Post({ author, content, publishedAt }: IPost) {
         </div>
       </div>
 
-      <form className="w-full mt-6 py-6 border-t border-woodsmoke-600 flex flex-col gap-4">
+      <form
+        onSubmit={handleCreateNewComment}
+        className="w-full mt-6 py-6 border-t border-woodsmoke-600 flex flex-col gap-4"
+      >
         <strong className="text-base text-woodsmoke-200 font-roboto-bold font-bold">
           Deixe seu feedback
         </strong>
@@ -106,11 +123,12 @@ export function Post({ author, content, publishedAt }: IPost) {
         <textarea
           className="h-20 bg-woodsmoke-900 py-3 px-4 rounded-lg outline-none focus:outline focus:outline-eucalyptus-500 placeholder:text-sm placeholder:font-normal placeholder:text-woodsmoke-300"
           placeholder="Escreva um comentário..."
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
+          value={newCommentText}
+          name="comment"
+          onChange={handleNewCommentChange}
         />
 
-        {comment.length > 0 && (
+        {newCommentText.length > 0 && (
           <button
             type="submit"
             className="max-w-[108px] py-4 px-6 bg-eucalyptus-700 rounded-lg font-roboto-bold font-bold transition-colors hover:bg-eucalyptus-500 hover:text-eucalyptus-50"
@@ -121,9 +139,9 @@ export function Post({ author, content, publishedAt }: IPost) {
       </form>
 
       <div className="mt-8 space-y-6">
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map((comment) => {
+          return <Comment content={comment} />;
+        })}
       </div>
     </article>
   );
