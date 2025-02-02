@@ -4,7 +4,7 @@ import { Avatar } from './avatar';
 export function Comment() {
   return (
     <div className="flex items-start gap-2 lg:gap-4">
-      <Avatar github_username="LucasAnselmoSIlva12345" />
+      <Avatar githubURL="https://github.com/LucasAnselmoSilva12345.png" />
 
       <div className="w-full">
         <div className="bg-woodsmoke-900 rounded-lg px-4 pt-4 pb-6 space-y-4">

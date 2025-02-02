@@ -1,8 +1,41 @@
+import { format, formatDistanceToNow } from 'date-fns';
+import { ptBR } from 'date-fns/locale/pt-BR';
+
 import { useState } from 'react';
 import { Avatar } from './avatar';
 import { Comment } from './comment';
 
-export function Post() {
+interface IAuthor {
+  avatarURL: string;
+  name: string;
+  role: string;
+}
+
+interface IContent {
+  type: 'paragraph' | 'link' | 'hashtag';
+  content: string;
+}
+
+interface IPost {
+  author: IAuthor;
+  content: IContent[];
+  publishedAt: Date;
+}
+
+export function Post({ author, content, publishedAt }: IPost) {
+  const publishedFateFormatted = format(
+    publishedAt,
+    "d 'de' LLLL 'às' HH:mm'h'",
+    {
+      locale: ptBR,
+    }
+  );
+
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true,
+  });
+
   const [comment, setComment] = useState('');
 
   return (
@@ -10,62 +43,58 @@ export function Post() {
       <header className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex items-center gap-4">
           <Avatar
-            github_username="LucasAnselmoSilva12345"
+            githubURL={author.avatarURL}
             className="border-2 border-eucalyptus-600"
           />
           <div className="flex flex-col gap-1">
             <strong className="text-base font-roboto-bold text-woodsmoke-200">
-              Lucas Anselmo
+              {author.name}
             </strong>
-            <span className="text-sm text-woodsmoke-400">
-              Front-end Software Developer
-            </span>
+            <span className="text-sm text-woodsmoke-400">{author.role}</span>
           </div>
         </div>
 
         <time
-          title="25 de Janeiro às 14:47"
-          dateTime="2025-01-25 14:48:30"
+          title={publishedFateFormatted}
+          dateTime={publishedAt.toISOString()}
           className="mt-2 lg:mt-0 lg:ml-auto text-sm text-woodsmoke-400"
         >
-          Publicado há 1h
+          {publishedDateRelativeToNow}
         </time>
       </header>
 
       <div className="mt-6 text-base text-woodsmoke-400 space-y-4">
-        <p>Fala galeraa 👋 </p>
-        <p>
-          Acabei de subir mais um projeto no meu portifa. É um projeto que fiz
-          no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀{' '}
-        </p>
-        <p>
-          👉{' '}
-          <a
-            href=""
-            className="text-eucalyptus-500 font-roboto-bold font-bold transition-colors hover:text-eucalyptus-700"
-          >
-            jane.design/doctorcare
-          </a>
-        </p>
+        {content.map((item, index) => {
+          if (item.type === 'paragraph') {
+            return <p key={index}>{item.content}</p>;
+          } else if (item.type === 'link') {
+            return (
+              <p key={index}>
+                👉{' '}
+                <a
+                  href={item.content}
+                  className="text-eucalyptus-500 font-roboto-bold font-bold transition-colors hover:text-eucalyptus-700"
+                >
+                  {item.content}
+                </a>
+              </p>
+            );
+          }
+          return null;
+        })}
+
         <div className="space-x-1">
-          <a
-            href="#"
-            className="text-sm text-eucalyptus-500 font-roboto-bold font-bold transition-colors hover:text-eucalyptus-700"
-          >
-            #novoprojeto
-          </a>
-          <a
-            href="#"
-            className="text-sm text-eucalyptus-500 font-roboto-bold font-bold transition-colors hover:text-eucalyptus-700"
-          >
-            #nlw
-          </a>
-          <a
-            href="#"
-            className="text-sm text-eucalyptus-500 font-roboto-bold font-bold transition-colors hover:text-eucalyptus-700"
-          >
-            #rocketseat
-          </a>
+          {content
+            .filter((item) => item.type === 'hashtag')
+            .map((item, index) => (
+              <a
+                href="#"
+                key={index}
+                className="text-sm text-eucalyptus-500 font-roboto-bold font-bold transition-colors hover:text-eucalyptus-700"
+              >
+                {item.content}
+              </a>
+            ))}
         </div>
       </div>
 

@@ -12,7 +12,7 @@ export function Sidebar() {
 
       <div className="flex flex-col items-center -mt-6">
         <Avatar
-          github_username="LucasAnselmoSilva12345"
+          githubURL="https://github.com/LucasAnselmoSilva12345.png"
           className="border-2 border-eucalyptus-600"
         />
 
