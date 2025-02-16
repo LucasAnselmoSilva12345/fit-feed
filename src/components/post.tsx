@@ -73,9 +73,9 @@ export function Post({ post }: IPost) {
             className="border-2 border-eucalyptus-600"
           />
           <div className="flex flex-col gap-1">
-            <strong className="text-base font-roboto-bold text-woodsmoke-200">
+            <h2 className="text-base font-roboto-bold text-woodsmoke-200">
               {post.author.name}
-            </strong>
+            </h2>
             <span className="text-sm text-woodsmoke-400">
               {post.author.role}
             </span>
