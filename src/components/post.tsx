@@ -16,25 +16,30 @@ interface IContent {
   content: string;
 }
 
-interface IPost {
+export interface IPostProps {
+  id: number;
   author: IAuthor;
   content: IContent[];
   publishedAt: Date;
 }
 
-export function Post({ author, content, publishedAt }: IPost) {
+interface IPost {
+  post: IPostProps;
+}
+
+export function Post({ post }: IPost) {
   const [comments, setComments] = useState(['Grande Evolução']);
   const [newCommentText, setNewCommentText] = useState('');
 
   const publishedFateFormatted = format(
-    publishedAt,
+    post.publishedAt,
     "d 'de' LLLL 'às' HH:mm'h'",
     {
       locale: ptBR,
     }
   );
 
-  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+  const publishedDateRelativeToNow = formatDistanceToNow(post.publishedAt, {
     locale: ptBR,
     addSuffix: true,
   });
@@ -64,20 +69,22 @@ export function Post({ author, content, publishedAt }: IPost) {
       <header className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex items-center gap-4">
           <Avatar
-            githubURL={author.avatarURL}
+            githubURL={post.author.avatarURL}
             className="border-2 border-eucalyptus-600"
           />
           <div className="flex flex-col gap-1">
             <strong className="text-base font-roboto-bold text-woodsmoke-200">
-              {author.name}
+              {post.author.name}
             </strong>
-            <span className="text-sm text-woodsmoke-400">{author.role}</span>
+            <span className="text-sm text-woodsmoke-400">
+              {post.author.role}
+            </span>
           </div>
         </div>
 
         <time
           title={publishedFateFormatted}
-          dateTime={publishedAt.toISOString()}
+          dateTime={post.publishedAt.toISOString()}
           className="mt-2 lg:mt-0 lg:ml-auto text-sm text-woodsmoke-400"
         >
           {publishedDateRelativeToNow}
@@ -85,7 +92,7 @@ export function Post({ author, content, publishedAt }: IPost) {
       </header>
 
       <div className="mt-6 text-base text-woodsmoke-400 space-y-4">
-        {content.map((item) => {
+        {post.content.map((item) => {
           if (item.type === 'paragraph') {
             return <p key={item.content}>{item.content}</p>;
           } else if (item.type === 'link') {
@@ -105,7 +112,7 @@ export function Post({ author, content, publishedAt }: IPost) {
         })}
 
         <div className="space-x-1">
-          {content
+          {post.content
             .filter((item) => item.type === 'hashtag')
             .map((item) => (
               <a

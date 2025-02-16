@@ -1,8 +1,8 @@
 import { Header } from './components/header';
-import { Post } from './components/post';
+import { Post, IPostProps } from './components/post';
 import { Sidebar } from './components/sidebar';
 
-const posts = [
+const posts: IPostProps[] = [
   {
     id: 1,
     author: {
@@ -100,15 +100,8 @@ export function App() {
         <Sidebar />
 
         <section className="space-y-8">
-          {posts.map(({ author, content, publishedAt, id }) => {
-            return (
-              <Post
-                key={id}
-                author={author}
-                content={content}
-                publishedAt={publishedAt}
-              />
-            );
+          {posts.map((postData) => {
+            return <Post key={postData.id} post={postData} />;
           })}
         </section>
       </main>
