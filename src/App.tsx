@@ -56,7 +56,10 @@ const posts: IPostProps[] = [
         content:
           'O treino inclui 4 dias de HIIT e 2 dias de alongamento e recuperação ativa. É perfeito para quem tem pouco tempo e quer resultados rápidos!',
       },
-      { type: 'link', content: 'fitfeed.com/joanasilva/plano-emagrecimento' },
+      {
+        type: 'link',
+        content: 'fitfeed.com/diegofernandes/plano-emagrecimento',
+      },
       { type: 'hashtag', content: '#emagrecimento' },
       { type: 'hashtag', content: '#HIIT' },
       { type: 'hashtag', content: '#vidasaudavel' },
@@ -82,7 +85,7 @@ const posts: IPostProps[] = [
         content:
           'São 3 dias de corrida e 3 dias de treino funcional com foco em aumento da resistência e força muscular. Ideal para quem quer melhorar o condicionamento físico geral.',
       },
-      { type: 'link', content: 'fitfeed.com/carlossouza/treino-resistencia' },
+      { type: 'link', content: 'fitfeed.com/maykbrito/treino-resistencia' },
       { type: 'hashtag', content: '#resistencia' },
       { type: 'hashtag', content: '#corrida' },
       { type: 'hashtag', content: '#forca' },

@@ -21,7 +21,7 @@ export function Sidebar() {
             Lucas Anselmo
           </strong>
           <span className="text-xs lg:text-sm text-woodsmoke-400">
-            Front-end Software Developer
+            Personal Trainer
           </span>
         </div>
       </div>
