@@ -1,6 +1,21 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import {
+  ApertureIcon,
+  Cable,
+  ClipboardTypeIcon,
+  DiameterIcon,
+  DumbbellIcon,
+  ListOrderedIcon,
+} from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import {
+  InputContainer,
+  InputField,
+  InputIcon,
+  InputLabel,
+  InputRoot,
+} from '../components/input';
 
 const formSchema = z.object({
   exerciseName: z.string().nonempty('O campo nome do exercício é obrigatório'),
@@ -37,20 +52,20 @@ export function TrainingTracker() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
         <div className="space-y-3">
           <div className="space-y-2">
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="exerciseName"
-                className="font-roboto-medium text-base text-woodsmoke-200"
-              >
-                Nome do exercício:{' '}
-              </label>
-              <input
-                id="exerciseName"
-                className="w-full py-2 px-2 bg-woodsmoke-800 rounded font-roboto-regular text-sm text-white outline-none focus:outline-eucalyptus-500"
-                placeholder="Adicione um novo exercício"
-                {...register('exerciseName')}
-              />
-            </div>
+            <InputRoot>
+              <InputLabel htmlFor="exerciseName">Nome do exercício:</InputLabel>
+              <InputContainer>
+                <InputIcon>
+                  <DumbbellIcon />
+                </InputIcon>
+                <InputField
+                  id="exerciseName"
+                  type="text"
+                  placeholder="Adicione um novo exercício"
+                  {...register('exerciseName')}
+                />
+              </InputContainer>
+            </InputRoot>
             {errors.exerciseName && (
               <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
                 {errors.exerciseName.message}
@@ -59,20 +74,68 @@ export function TrainingTracker() {
           </div>
 
           <div className="space-y-2">
-            <div className="flex flex-col gap-1">
-              <label
-                htmlFor="numberRepeatSeries"
-                className="font-roboto-medium text-base text-woodsmoke-200"
-              >
-                Repetições:{' '}
-              </label>
-              <input
-                id="numberRepeatSeries"
-                className="w-full py-2 px-2 bg-woodsmoke-800 rounded font-roboto-regular text-sm text-white outline-none focus:outline-eucalyptus-500"
-                placeholder="Adicione um novo exercício"
-                {...register('numberRepeatSeries')}
-              />
-            </div>
+            <InputRoot>
+              <InputLabel htmlFor="equipmentType">
+                Tipo do equipamento:
+              </InputLabel>
+              <InputContainer>
+                <InputIcon>
+                  <Cable />
+                </InputIcon>
+                <InputField
+                  id="equipmentType"
+                  type="text"
+                  placeholder="Adicione um novo exercício"
+                  {...register('equipmentType')}
+                />
+              </InputContainer>
+            </InputRoot>
+            {errors.equipmentType && (
+              <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
+                {errors.equipmentType.message}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <InputRoot>
+              <InputLabel htmlFor="weight">Tipo do equipamento:</InputLabel>
+              <InputContainer>
+                <InputIcon>
+                  <DiameterIcon />
+                </InputIcon>
+                <InputField
+                  id="weight"
+                  type="text"
+                  placeholder="Adicione um novo exercício"
+                  {...register('weight')}
+                />
+              </InputContainer>
+            </InputRoot>
+            {errors.weight && (
+              <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
+                {errors.weight.message}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <InputRoot>
+              <InputLabel htmlFor="numberRepeatSeries">
+                Tipo do equipamento:
+              </InputLabel>
+              <InputContainer>
+                <InputIcon>
+                  <ListOrderedIcon />
+                </InputIcon>
+                <InputField
+                  id="numberRepeatSeries"
+                  type="text"
+                  placeholder="Adicione um novo exercício"
+                  {...register('numberRepeatSeries')}
+                />
+              </InputContainer>
+            </InputRoot>
             {errors.numberRepeatSeries && (
               <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
                 {errors.numberRepeatSeries.message}
@@ -81,23 +144,49 @@ export function TrainingTracker() {
           </div>
 
           <div className="space-y-2">
-            <div className="flex flex-col gap-1">
-              <label
-                htmlFor="typeOfExercise"
-                className="font-roboto-medium text-base text-woodsmoke-200"
-              >
-                Tipo do exercício:{' '}
-              </label>
-              <input
-                id="typeOfExercise"
-                className="w-full py-2 px-2 bg-woodsmoke-800 rounded font-roboto-regular text-sm text-white outline-none focus:outline-eucalyptus-500"
-                placeholder="Adicione um novo exercício"
-                {...register('typeOfExercise')}
-              />
-            </div>
+            <InputRoot>
+              <InputLabel htmlFor="typeOfExercise">
+                Tipo do equipamento:
+              </InputLabel>
+              <InputContainer>
+                <InputIcon>
+                  <ClipboardTypeIcon />
+                </InputIcon>
+                <InputField
+                  id="typeOfExercise"
+                  type="text"
+                  placeholder="Adicione um novo exercício"
+                  {...register('typeOfExercise')}
+                />
+              </InputContainer>
+            </InputRoot>
             {errors.typeOfExercise && (
               <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
                 {errors.typeOfExercise.message}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <InputRoot>
+              <InputLabel htmlFor="trainingGoal">
+                Tipo do equipamento:
+              </InputLabel>
+              <InputContainer>
+                <InputIcon>
+                  <ApertureIcon />
+                </InputIcon>
+                <InputField
+                  id="trainingGoal"
+                  type="text"
+                  placeholder="Adicione um novo exercício"
+                  {...register('trainingGoal')}
+                />
+              </InputContainer>
+            </InputRoot>
+            {errors.trainingGoal && (
+              <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
+                {errors.trainingGoal.message}
               </p>
             )}
           </div>
