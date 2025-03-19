@@ -48,9 +48,9 @@ export function TrainingTracker() {
   };
 
   return (
-    <div className="w-full">
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-        <div className="space-y-3">
+    <section className="w-full lg:max-w-[70rem] lg:mx-auto">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 text-end">
+        <div className="space-y-3 lg:grid lg:grid-cols-3 lg:items-end lg:gap-2">
           <div className="space-y-2">
             <InputRoot>
               <InputLabel htmlFor="exerciseName">Nome do exercício:</InputLabel>
@@ -194,11 +194,11 @@ export function TrainingTracker() {
 
         <button
           type="submit"
-          className="w-full p-4 bg-eucalyptus-700 rounded-lg capitalize font-roboto-bold text-base font-bold transition ease-in-out duration-200 hover:bg-eucalyptus-500"
+          className="w-full lg:max-w-[6rem] p-4 bg-eucalyptus-700 rounded-lg capitalize font-roboto-bold text-base font-bold transition ease-in-out duration-200 hover:bg-eucalyptus-500"
         >
           enviar
         </button>
       </form>
-    </div>
+    </section>
   );
 }

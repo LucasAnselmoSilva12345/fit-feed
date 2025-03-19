@@ -13,7 +13,7 @@ export const InputLabel = forwardRef<HTMLLabelElement, InputLabelProps>(
     return (
       <label
         ref={ref}
-        className="font-roboto-medium text-base text-woodsmoke-200"
+        className="font-roboto-medium text-base text-woodsmoke-200 text-left"
         {...props}
       />
     );
