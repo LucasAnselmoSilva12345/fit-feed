@@ -95,14 +95,14 @@ const posts: IPostProps[] = [
 
 export function Home() {
   return (
-    <>
+    <section className="max-w-[70rem] mx-auto grid grid-cols-1 lg:grid-cols-[256px_1fr] gap-8 items-start">
       <Sidebar />
 
-      <section className="space-y-8">
+      <div className="space-y-8">
         {posts.map((postData) => {
           return <Post key={postData.id} post={postData} />;
         })}
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
