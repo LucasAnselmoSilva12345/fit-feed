@@ -15,6 +15,7 @@ import {
   InputLabel,
   InputRoot,
 } from '../../components/input';
+import { Error } from '../../components/error';
 
 const formSchema = z.object({
   exerciseName: z.string().nonempty('O campo nome do exercício é obrigatório'),
@@ -64,9 +65,7 @@ export function TrainingForm({ onSubmit }: TrainingFormProps) {
             </InputContainer>
           </InputRoot>
           {errors.exerciseName && (
-            <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
-              {errors.exerciseName.message}
-            </p>
+            <Error message={errors.exerciseName.message} />
           )}
         </div>
 
@@ -86,9 +85,7 @@ export function TrainingForm({ onSubmit }: TrainingFormProps) {
             </InputContainer>
           </InputRoot>
           {errors.trainingGoal && (
-            <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
-              {errors.trainingGoal.message}
-            </p>
+            <Error message={errors.trainingGoal.message} />
           )}
         </div>
 
@@ -110,9 +107,7 @@ export function TrainingForm({ onSubmit }: TrainingFormProps) {
             </InputContainer>
           </InputRoot>
           {errors.equipmentType && (
-            <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
-              {errors.equipmentType.message}
-            </p>
+            <Error message={errors.equipmentType.message} />
           )}
         </div>
 
@@ -134,9 +129,7 @@ export function TrainingForm({ onSubmit }: TrainingFormProps) {
             </InputContainer>
           </InputRoot>
           {errors.trainingStrategy && (
-            <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
-              {errors.trainingStrategy.message}
-            </p>
+            <Error message={errors.trainingStrategy.message} />
           )}
         </div>
 
@@ -158,9 +151,7 @@ export function TrainingForm({ onSubmit }: TrainingFormProps) {
             </InputContainer>
           </InputRoot>
           {errors.numberRepeatSeries && (
-            <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
-              {errors.numberRepeatSeries.message}
-            </p>
+            <Error message={errors.numberRepeatSeries.message} />
           )}
         </div>
 
