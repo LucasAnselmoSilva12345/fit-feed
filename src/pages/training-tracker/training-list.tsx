@@ -1,6 +1,16 @@
 import { useState } from 'react';
 import { TrainingWithoutRegister } from './training-without-register';
 
+import {
+  ApertureIcon,
+  Cable,
+  CircleCheckIcon,
+  ClipboardTypeIcon,
+  DumbbellIcon,
+  ListOrderedIcon,
+  Trash2Icon,
+} from 'lucide-react';
+
 interface TrainingData {
   exerciseName: string;
   trainingGoal: string;
@@ -32,49 +42,120 @@ export function TrainingList({
       {trainings.length === 0 ? (
         <TrainingWithoutRegister />
       ) : (
-        <ul className="space-y-4">
+        <div className="space-y-4">
           {trainings.map((training, index) => (
-            <li
+            <div
               key={index}
-              className={`p-4 border rounded-lg ${
-                completedTrainings.includes(index) ? 'bg-green-100' : 'bg-white'
+              className={`p-4 bg-woodsmoke-800 border  rounded space-y-3  ${
+                completedTrainings.includes(index)
+                  ? 'border-eucalyptus-500'
+                  : 'border-woodsmoke-600'
               }`}
             >
-              <p>
-                <strong>Nome do exercício:</strong> {training.exerciseName}
-              </p>
-              <p>
-                <strong>Objetivo do treino:</strong> {training.trainingGoal}
-              </p>
-              <p>
-                <strong>Tipo do equipamento:</strong> {training.equipmentType}
-              </p>
-              <p>
-                <strong>Estratégia de treino:</strong>{' '}
-                {training.trainingStrategy}
-              </p>
-              <p>
-                <strong>Séries e repetições:</strong>{' '}
-                {training.numberRepeatSeries}
-              </p>
+              <div className="flex flex-col gap-3 lg:gap-0 lg:flex-row lg:items-center lg:justify-between">
+                <p className="flex items-center gap-2">
+                  <DumbbellIcon
+                    className={`${
+                      completedTrainings.includes(index)
+                        ? 'text-eucalyptus-500'
+                        : 'text-woodsmoke-300'
+                    }`}
+                  />{' '}
+                  <span
+                    className={`text-sm font-roboto-regular font-normal ${
+                      completedTrainings.includes(index)
+                        ? 'text-eucalyptus-500'
+                        : 'text-woodsmoke-300'
+                    }`}
+                  >
+                    {training.exerciseName}
+                  </span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <ApertureIcon
+                    className={`${
+                      completedTrainings.includes(index)
+                        ? 'text-eucalyptus-500'
+                        : 'text-woodsmoke-300'
+                    }`}
+                  />{' '}
+                  <span
+                    className={`text-sm font-roboto-regular font-normal ${
+                      completedTrainings.includes(index)
+                        ? 'text-eucalyptus-500'
+                        : 'text-woodsmoke-300'
+                    }`}
+                  >
+                    {training.trainingGoal}
+                  </span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Cable
+                    className={`${
+                      completedTrainings.includes(index)
+                        ? 'text-eucalyptus-500'
+                        : 'text-woodsmoke-300'
+                    }`}
+                  />{' '}
+                  <span
+                    className={`text-sm font-roboto-regular font-normal ${
+                      completedTrainings.includes(index)
+                        ? 'text-eucalyptus-500'
+                        : 'text-woodsmoke-300'
+                    }`}
+                  >
+                    {training.equipmentType}
+                  </span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <ClipboardTypeIcon
+                    className={`${
+                      completedTrainings.includes(index)
+                        ? 'text-eucalyptus-500'
+                        : 'text-woodsmoke-300'
+                    }`}
+                  />
+                  <span
+                    className={`text-sm font-roboto-regular font-normal ${
+                      completedTrainings.includes(index)
+                        ? 'text-eucalyptus-500'
+                        : 'text-woodsmoke-300'
+                    }`}
+                  >
+                    {training.trainingStrategy}
+                  </span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <ListOrderedIcon
+                    className={`${
+                      completedTrainings.includes(index)
+                        ? 'text-eucalyptus-500'
+                        : 'text-woodsmoke-300'
+                    }`}
+                  />
+                  <span
+                    className={`text-sm font-roboto-regular font-normal ${
+                      completedTrainings.includes(index)
+                        ? 'text-eucalyptus-500'
+                        : 'text-woodsmoke-300'
+                    }`}
+                  >
+                    {training.numberRepeatSeries}
+                  </span>
+                </p>
+              </div>
 
-              <div className="mt-4 flex gap-2">
-                <button
-                  className="p-2 bg-green-500 text-white rounded-md hover:bg-green-400"
-                  onClick={() => handleComplete(index)}
-                >
-                  Concluir
+              <div className="border-t border-woodsmoke-600 pt-3 flex items-center justify-end gap-2">
+                <button onClick={() => handleComplete(index)}>
+                  <CircleCheckIcon className="text-emerald-500" />
                 </button>
-                <button
-                  className="p-2 bg-red-500 text-white rounded-md hover:bg-red-400"
-                  onClick={() => onDelete(index)}
-                >
-                  Excluir
+                <button onClick={() => onDelete(index)}>
+                  <Trash2Icon className="text-carnation-400" />
                 </button>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
