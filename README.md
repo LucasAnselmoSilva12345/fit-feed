@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+# Fit Feed
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O **Fit Feed** é uma aplicação web que permite aos usuários compartilhar suas rotinas de treino, dietas e outras informações relacionadas ao universo fitness, além de poder registrar os treinos que pretendem realizar, com detalhes sobre os exercícios e objetivos. É uma plataforma simples e prática para quem deseja compartilhar suas experiências de treino ou planejar suas atividades físicas.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Feed de Postagens**: Usuários podem compartilhar suas rotinas de treino, dietas ou qualquer coisa relacionada à academia.
+- **Registro de Treinos**: Página onde os usuários podem registrar os treinos que farão na academia, incluindo:
+  - Nome do exercício
+  - Objetivo do treino
+  - Equipamentos utilizados
+  - Estratégias do treino
+  - Número de séries e repetições
 
-## Expanding the ESLint configuration
+## Tecnologias Usadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**: Biblioteca JavaScript para construir a interface de usuário.
+- **TypeScript**: Superset do JavaScript para garantir maior segurança e estrutura no código.
+- **Tailwind CSS**: Framework CSS para criação de layouts responsivos e estilizados de maneira eficiente.
+- **Zod**: Biblioteca para validação de dados, utilizada para validar os formulários.
 
-- Configure the top-level `parserOptions` property like this:
+## Instalação
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Clone o repositório:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+   ```bash
+   git clone https://github.com/LucasAnselmoSilva12345/fit-feed.git
+   ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+2. Navegue até o diretório do projeto:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   ```bash
+   cd fit-feed
+   ```
+
+3. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+4. Inicie a aplicação:
+
+   ```bash
+   npm run dev
+   ```
+
+A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
