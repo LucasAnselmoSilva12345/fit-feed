@@ -1,5 +1,5 @@
-import { Pencil2Icon } from '@radix-ui/react-icons';
 import { Avatar } from './avatar';
+import { SquarePenIcon } from 'lucide-react';
 
 export function Sidebar() {
   return (
@@ -28,11 +28,11 @@ export function Sidebar() {
 
       <footer className="border-t border-solid border-t-neutral-700 mt-6 pt-6 px-8 pb-8">
         <a
-          href="#"
+          href="/training-tracker"
           className="py-4 px-6 flex items-center justify-center gap-2 bg-transparent text-xs lg:text-sm font-bold font-roboto-bold text-eucalyptus-500 border border-solid border-eucalyptus-500 rounded-lg transition-colors hover:bg-eucalyptus-700 hover:text-eucalyptus-50 hover:border-emerald-700"
         >
-          <Pencil2Icon className="w-4 h-4" />
-          Editar seu perfil
+          <SquarePenIcon className="w-4 h-4" />
+          Criar meu treino
         </a>
       </footer>
     </aside>
