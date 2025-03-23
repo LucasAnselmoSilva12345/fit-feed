@@ -18,16 +18,16 @@ import {
 
 const formSchema = z.object({
   exerciseName: z.string().nonempty('O campo nome do exercício é obrigatório'),
+  trainingGoal: z.string().nonempty('O campo objetivo do treino é obrigatório'),
   equipmentType: z
     .string()
     .nonempty('O campo tipo de equipamento é obrigatório'),
+  trainingStrategy: z
+    .string()
+    .nonempty('O campo estratégia de treino é obrigatório'),
   numberRepeatSeries: z
     .string()
-    .nonempty('O campo de número de repetições é obrigatório'),
-  typeOfExercise: z
-    .string()
-    .nonempty('O campo tipo do exercício é obrigatório'),
-  trainingGoal: z.string().nonempty('O campo objetivo do treino é obrigatório'),
+    .nonempty('O campo de número de séries e repetições é obrigatório'),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -121,7 +121,7 @@ export function TrainingTracker() {
 
           <div className="space-y-2">
             <InputRoot>
-              <InputLabel htmlFor="typeOfExercise">
+              <InputLabel htmlFor="trainingStrategy">
                 Estratégia de treino:
               </InputLabel>
               <InputContainer>
@@ -129,16 +129,16 @@ export function TrainingTracker() {
                   <ClipboardTypeIcon />
                 </InputIcon>
                 <InputField
-                  id="typeOfExercise"
+                  id="trainingStrategy"
                   type="text"
                   placeholder="Ex: Progressão de carga, Condicionamento físico"
-                  {...register('typeOfExercise')}
+                  {...register('trainingStrategy')}
                 />
               </InputContainer>
             </InputRoot>
-            {errors.typeOfExercise && (
+            {errors.trainingStrategy && (
               <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
-                {errors.typeOfExercise.message}
+                {errors.trainingStrategy.message}
               </p>
             )}
           </div>
@@ -170,7 +170,7 @@ export function TrainingTracker() {
 
         <button
           type="submit"
-          className="w-full lg:max-w-[6rem] p-4 bg-eucalyptus-700 rounded-lg capitalize font-roboto-bold text-base font-bold transition ease-in-out duration-200 hover:bg-eucalyptus-500"
+          className="w-full lg:max-w-xs p-4 bg-eucalyptus-700 rounded-lg capitalize font-roboto-bold text-base font-bold transition ease-in-out duration-200 hover:bg-eucalyptus-500"
         >
           Gerar meu treino
         </button>
