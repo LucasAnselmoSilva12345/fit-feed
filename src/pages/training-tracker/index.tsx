@@ -17,14 +17,14 @@ export function TrainingTracker() {
     (training) => training.completed
   ).length;
 
-  const handleAddTraining = (training: TrainingData) => {
+  const handleAddTraining = (training: Omit<TrainingData, 'completed'>) => {
     setTrainings((prevTrainings) => [
       ...prevTrainings,
       { ...training, completed: false },
     ]);
   };
 
-  const handleCompleteTraining = (index) => {
+  const handleCompleteTraining = (index: number) => {
     setTrainings((prevTrainings) =>
       prevTrainings.map((training, i) =>
         i === index ? { ...training, completed: true } : training
@@ -32,7 +32,7 @@ export function TrainingTracker() {
     );
   };
 
-  const handleDeleteTraining = (index) => {
+  const handleDeleteTraining = (index: number) => {
     setTrainings((prevTrainings) =>
       prevTrainings.filter((_, i) => i !== index)
     );
