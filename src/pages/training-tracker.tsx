@@ -3,7 +3,6 @@ import {
   ApertureIcon,
   Cable,
   ClipboardTypeIcon,
-  DiameterIcon,
   DumbbellIcon,
   ListOrderedIcon,
 } from 'lucide-react';
@@ -22,7 +21,6 @@ const formSchema = z.object({
   equipmentType: z
     .string()
     .nonempty('O campo tipo de equipamento é obrigatório'),
-  weight: z.string().nonempty('O campo de carga é obrigatório'),
   numberRepeatSeries: z
     .string()
     .nonempty('O campo de número de repetições é obrigatório'),
@@ -75,8 +73,32 @@ export function TrainingTracker() {
 
           <div className="space-y-2">
             <InputRoot>
+              <InputLabel htmlFor="trainingGoal">
+                Objetivo do treino:
+              </InputLabel>
+              <InputContainer>
+                <InputIcon>
+                  <ApertureIcon />
+                </InputIcon>
+                <InputField
+                  id="trainingGoal"
+                  type="text"
+                  placeholder="Ex: Hipertrofia"
+                  {...register('trainingGoal')}
+                />
+              </InputContainer>
+            </InputRoot>
+            {errors.trainingGoal && (
+              <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
+                {errors.trainingGoal.message}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <InputRoot>
               <InputLabel htmlFor="equipmentType">
-                Tipo do equipamento:
+                Equipamento utilizado:
               </InputLabel>
               <InputContainer>
                 <InputIcon>
@@ -85,7 +107,7 @@ export function TrainingTracker() {
                 <InputField
                   id="equipmentType"
                   type="text"
-                  placeholder="Adicione um novo exercício"
+                  placeholder="Ex: Polia, Máquina, Peso livre"
                   {...register('equipmentType')}
                 />
               </InputContainer>
@@ -99,54 +121,8 @@ export function TrainingTracker() {
 
           <div className="space-y-2">
             <InputRoot>
-              <InputLabel htmlFor="weight">Tipo do equipamento:</InputLabel>
-              <InputContainer>
-                <InputIcon>
-                  <DiameterIcon />
-                </InputIcon>
-                <InputField
-                  id="weight"
-                  type="text"
-                  placeholder="Adicione um novo exercício"
-                  {...register('weight')}
-                />
-              </InputContainer>
-            </InputRoot>
-            {errors.weight && (
-              <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
-                {errors.weight.message}
-              </p>
-            )}
-          </div>
-
-          <div className="space-y-2">
-            <InputRoot>
-              <InputLabel htmlFor="numberRepeatSeries">
-                Tipo do equipamento:
-              </InputLabel>
-              <InputContainer>
-                <InputIcon>
-                  <ListOrderedIcon />
-                </InputIcon>
-                <InputField
-                  id="numberRepeatSeries"
-                  type="text"
-                  placeholder="Adicione um novo exercício"
-                  {...register('numberRepeatSeries')}
-                />
-              </InputContainer>
-            </InputRoot>
-            {errors.numberRepeatSeries && (
-              <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
-                {errors.numberRepeatSeries.message}
-              </p>
-            )}
-          </div>
-
-          <div className="space-y-2">
-            <InputRoot>
               <InputLabel htmlFor="typeOfExercise">
-                Tipo do equipamento:
+                Estratégia de treino:
               </InputLabel>
               <InputContainer>
                 <InputIcon>
@@ -155,7 +131,7 @@ export function TrainingTracker() {
                 <InputField
                   id="typeOfExercise"
                   type="text"
-                  placeholder="Adicione um novo exercício"
+                  placeholder="Ex: Progressão de carga, Condicionamento físico"
                   {...register('typeOfExercise')}
                 />
               </InputContainer>
@@ -169,24 +145,24 @@ export function TrainingTracker() {
 
           <div className="space-y-2">
             <InputRoot>
-              <InputLabel htmlFor="trainingGoal">
-                Tipo do equipamento:
+              <InputLabel htmlFor="numberRepeatSeries">
+                Número de séries e repetições:
               </InputLabel>
               <InputContainer>
                 <InputIcon>
-                  <ApertureIcon />
+                  <ListOrderedIcon />
                 </InputIcon>
                 <InputField
-                  id="trainingGoal"
+                  id="numberRepeatSeries"
                   type="text"
-                  placeholder="Adicione um novo exercício"
-                  {...register('trainingGoal')}
+                  placeholder="Ex: 3 séries de 15 repetições"
+                  {...register('numberRepeatSeries')}
                 />
               </InputContainer>
             </InputRoot>
-            {errors.trainingGoal && (
+            {errors.numberRepeatSeries && (
               <p className="text-carnation-600 text-xs font-roboto-semi-bold font-semibold">
-                {errors.trainingGoal.message}
+                {errors.numberRepeatSeries.message}
               </p>
             )}
           </div>
@@ -196,7 +172,7 @@ export function TrainingTracker() {
           type="submit"
           className="w-full lg:max-w-[6rem] p-4 bg-eucalyptus-700 rounded-lg capitalize font-roboto-bold text-base font-bold transition ease-in-out duration-200 hover:bg-eucalyptus-500"
         >
-          enviar
+          Gerar meu treino
         </button>
       </form>
     </section>
