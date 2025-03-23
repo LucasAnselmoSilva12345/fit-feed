@@ -14,7 +14,7 @@ import {
   InputIcon,
   InputLabel,
   InputRoot,
-} from '../components/input';
+} from '../../components/input';
 
 const formSchema = z.object({
   exerciseName: z.string().nonempty('O campo nome do exercício é obrigatório'),
