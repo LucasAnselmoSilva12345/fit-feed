@@ -163,14 +163,14 @@ export function TrainingForm({ onSubmit }: TrainingFormProps) {
             </p>
           )}
         </div>
-      </div>
 
-      <button
-        type="submit"
-        className="w-full lg:max-w-xs p-4 bg-eucalyptus-700 rounded-lg capitalize font-roboto-bold text-base font-bold transition ease-in-out duration-200 hover:bg-eucalyptus-500"
-      >
-        Gerar meu treino
-      </button>
+        <button
+          type="submit"
+          className="w-full h-12 bg-eucalyptus-700 rounded-lg capitalize font-roboto-bold text-base font-bold transition ease-in-out duration-200 hover:bg-eucalyptus-500"
+        >
+          Gerar meu treino
+        </button>
+      </div>
     </form>
   );
 }

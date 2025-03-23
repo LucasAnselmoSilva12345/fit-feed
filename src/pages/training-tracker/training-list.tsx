@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { TrainingWithoutRegister } from './training-without-register';
 
 interface TrainingData {
   exerciseName: string;
@@ -28,9 +29,8 @@ export function TrainingList({
 
   return (
     <div className="mt-6">
-      <h3 className="font-bold text-lg">Lista de Treinos:</h3>
       {trainings.length === 0 ? (
-        <p className="text-gray-500">Ainda não temos treinos registrados</p>
+        <TrainingWithoutRegister />
       ) : (
         <ul className="space-y-4">
           {trainings.map((training, index) => (
