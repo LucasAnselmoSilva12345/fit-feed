@@ -34,7 +34,7 @@ const posts: IPostProps[] = [
       { type: 'hashtag', content: '#evolucaocorporal' },
       { type: 'hashtag', content: '#fitness' },
     ],
-    publishedAt: new Date('2025-01-25 10:00:00'),
+    publishedAt: new Date('2025-04-01 22:30:50'),
   },
   {
     id: 2,
@@ -63,7 +63,7 @@ const posts: IPostProps[] = [
       { type: 'hashtag', content: '#HIIT' },
       { type: 'hashtag', content: '#vidasaudavel' },
     ],
-    publishedAt: new Date('2025-01-28 11:30:00'),
+    publishedAt: new Date('2025-03-25 17:30:59'),
   },
   {
     id: 3,
@@ -89,7 +89,7 @@ const posts: IPostProps[] = [
       { type: 'hashtag', content: '#corrida' },
       { type: 'hashtag', content: '#forca' },
     ],
-    publishedAt: new Date('2025-01-31 12:00:00'),
+    publishedAt: new Date('2025-03-21 07:35:41'),
   },
 ];
 
