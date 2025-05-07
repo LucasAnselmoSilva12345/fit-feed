@@ -69,7 +69,7 @@ const posts: IPostProps[] = [
     id: 3,
     author: {
       avatarURL: 'https://github.com/maykbrito.png',
-      name: 'Mayk Brito',
+      name: 'Mayk Brito Silva',
       role: 'Coach de Performance',
     },
     content: [
